@@ -4,7 +4,7 @@ on: [pull_request]
     
 jobs:
   build:
-    runs-on: [ Linux ]
+    runs-on: [ self-hosted ]
     env:
       COVERITY_CHECKERS: --webapp-security
       COVERITY_URL: ${{secrets.COVERITY_URL}}
