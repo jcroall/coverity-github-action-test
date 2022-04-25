@@ -17,6 +17,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Coverity Scan (Full analysis)
       run: |
+          export COVERITY_UNSUPPORTED=1
           cov-capture --dir idir --project-dir .
           cov-analyze --dir idir --strip-path `pwd` $COVERITY_CHECKERS
           cov-commit-defects --dir idir --ticker-mode none --url ${{ secrets.COVERITY_URL }} --on-new-cert trust --stream \
